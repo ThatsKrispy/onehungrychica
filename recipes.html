@@ -33,6 +33,7 @@
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"CollectionPage","name":"Recipes — One Hungry Chica","url":"https://www.onehungrychica.com/recipes.html","description":"33 easy, delicious recipes from Miami food blogger Yuly Rodriguez.","author":{"@type":"Person","name":"Yuly Rodriguez"}}
   </script>
+  <link rel="stylesheet" href="accessibility.css">
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -118,18 +119,18 @@
 
   <main class="recipes-main" id="main-content">
     <div class="recipes-filter-bar" role="group" aria-label="Filter recipes by category">
-      <button data-filter="all" class="filter-tag active">All Recipes</button>
-      <button data-filter="brunch" class="filter-tag">Brunch</button>
-      <button data-filter="mains" class="filter-tag">Mains</button>
-      <button data-filter="snacks" class="filter-tag">Snacks &amp; Apps</button>
-      <button data-filter="barfood" class="filter-tag">Bar Food</button>
-      <button data-filter="huevos" class="filter-tag">Huevos</button>
-      <button data-filter="happyhour" class="filter-tag">Happy Hour</button>
-      <button data-filter="healthy" class="filter-tag">Healthy</button>
-      <button data-filter="tea" class="filter-tag">Spill the Tea</button>
-      <button data-filter="sweet" class="filter-tag">Sweet Tooth</button>
-      <button data-filter="basics" class="filter-tag">Back to Basics</button>
-      <button data-filter="lownSlow" class="filter-tag">Low &lsquo;N Slow</button>
+      <button data-filter="all" aria-pressed="true" class="filter-tag active">All Recipes</button>
+      <button data-filter="brunch" aria-pressed="false" class="filter-tag">Brunch</button>
+      <button data-filter="mains" aria-pressed="false" class="filter-tag">Mains</button>
+      <button data-filter="snacks" aria-pressed="false" class="filter-tag">Snacks &amp; Apps</button>
+      <button data-filter="barfood" aria-pressed="false" class="filter-tag">Bar Food</button>
+      <button data-filter="huevos" aria-pressed="false" class="filter-tag">Huevos</button>
+      <button data-filter="happyhour" aria-pressed="false" class="filter-tag">Happy Hour</button>
+      <button data-filter="healthy" aria-pressed="false" class="filter-tag">Healthy</button>
+      <button data-filter="tea" aria-pressed="false" class="filter-tag">Spill the Tea</button>
+      <button data-filter="sweet" aria-pressed="false" class="filter-tag">Sweet Tooth</button>
+      <button data-filter="basics" aria-pressed="false" class="filter-tag">Back to Basics</button>
+      <button data-filter="lownSlow" aria-pressed="false" class="filter-tag">Low &lsquo;N Slow</button>
     </div>
 
     <div class="recipe-archive" id="recipesGrid">
@@ -456,6 +457,7 @@
     <a href="privacy-policy.html">Privacy Policy</a>
     <a href="disclaimer.html">Disclaimer</a>
     <a href="terms.html">Terms &amp; Conditions</a>
+    <a href="accessibility-statement.html">Accessibility</a>
   </nav>
   <p class="footer-copy">© 2026 One Hungry Chica Enterprise LLC · Miami, FL · All Rights Reserved</p>
 </footer>
@@ -492,5 +494,6 @@
   </div>
 </div>
 <script src="main.js" defer></script>
+<script src="accessibility.js" defer></script>
 </body>
 </html>

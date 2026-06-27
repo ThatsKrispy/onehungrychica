@@ -33,6 +33,7 @@
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Person","name":"Yuly Rodriguez","jobTitle":"Food Blogger & Digital Marketing Founder","url":"https://www.onehungrychica.com/about.html","image":"https://www.onehungrychica.com/images/yuly-rodriguez-one-hungry-chica-miami-food-blogger.jpg","sameAs":["https://www.instagram.com/onehungrychica","https://www.facebook.com/onehungrychica"],"address":{"@type":"PostalAddress","addressLocality":"Miami","addressRegion":"FL","addressCountry":"US"}}
   </script>
+  <link rel="stylesheet" href="accessibility.css">
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -89,7 +90,7 @@
   <div class="contact-form">
     <h2>Get In Touch</h2>
     <label class="cf-label" for="cf-subject">Subject</label>
-    <input type="text" id="cf-subject" class="cf-input" placeholder="What&rsquo;s on your mind?">
+    <input type="text" id="cf-subject" class="cf-input" required aria-required="true" placeholder="What&rsquo;s on your mind?">
     <div class="cf-row2">
       <div>
         <label class="cf-label" for="cf-first">First Name</label>
@@ -101,9 +102,9 @@
       </div>
     </div>
     <label class="cf-label" for="cf-email" style="margin-top:14px;display:block;">Email Address</label>
-    <input type="email" id="cf-email" class="cf-input" placeholder="your@email.com">
+    <input type="email" id="cf-email" class="cf-input" type="email" required aria-required="true" placeholder="your@email.com">
     <label class="cf-label" for="cf-message" style="margin-top:6px;display:block;">Message</label>
-    <textarea id="cf-message" class="cf-textarea" placeholder="Tell me about your project or recipe question…" aria-label="Message"></textarea>
+    <textarea id="cf-message" class="cf-textarea" required aria-required="true" placeholder="Tell me about your project or recipe question…" aria-label="Message"></textarea>
     <button type="button" class="cf-submit">Send Message</button>
   </div>
 
@@ -121,6 +122,7 @@
     <a href="privacy-policy.html">Privacy Policy</a>
     <a href="disclaimer.html">Disclaimer</a>
     <a href="terms.html">Terms &amp; Conditions</a>
+    <a href="accessibility-statement.html">Accessibility</a>
   </nav>
   <p class="footer-copy">© 2026 One Hungry Chica Enterprise LLC · Miami, FL · All Rights Reserved</p>
 </footer>
@@ -157,5 +159,6 @@
   </div>
 </div>
 <script src="main.js" defer></script>
+<script src="accessibility.js" defer></script>
 </body>
 </html>

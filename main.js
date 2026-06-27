@@ -1,4 +1,5 @@
-/* One Hungry Chica — main.js v3.0 */
+/* One Hungry Chica — main.js v3.1
+   ThatsKrispy Agency · andy@thatskrispy.com */
 
 /* ── MOBILE NAV ── */
 const toggle = document.querySelector('.mobile-toggle');
@@ -6,7 +7,7 @@ const nav = document.getElementById('siteNav');
 if (toggle && nav) {
   toggle.addEventListener('click', () => {
     const open = nav.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', open);
+    toggle.setAttribute('aria-expanded', String(open));
     toggle.textContent = open ? '✕' : '☰';
   });
 }
@@ -17,11 +18,17 @@ const searchBar = document.querySelector('.search-bar');
 if (searchTrigger && searchBar) {
   searchTrigger.addEventListener('click', () => {
     const open = searchBar.classList.toggle('open');
-    if (open) searchBar.querySelector('input').focus();
+    if (open) searchBar.querySelector('input')?.focus();
   });
   searchBar.querySelector('button')?.addEventListener('click', () => {
     const q = searchBar.querySelector('input')?.value?.trim();
     if (q) window.location.href = `recipes.html?q=${encodeURIComponent(q)}`;
+  });
+  searchBar.querySelector('input')?.addEventListener('keydown', e => {
+    if (e.key === 'Enter') {
+      const q = e.target.value.trim();
+      if (q) window.location.href = `recipes.html?q=${encodeURIComponent(q)}`;
+    }
   });
 }
 
@@ -31,27 +38,35 @@ const cards = document.querySelectorAll('.ra-card');
 if (filterBtns.length && cards.length) {
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active'));
+      filterBtns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed','false'); });
       btn.classList.add('active');
+      btn.setAttribute('aria-pressed','true');
       const cat = btn.dataset.filter;
+      let visible = 0;
       cards.forEach(card => {
-        card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none';
+        const show = (cat === 'all' || card.dataset.cat === cat);
+        card.style.display = show ? '' : 'none';
+        if (show) visible++;
       });
     });
   });
-  // URL param support
+  // URL param search
   const params = new URLSearchParams(window.location.search);
-  if (params.get('q')) {
-    const q = params.get('q').toLowerCase();
+  const q = params.get('q');
+  if (q) {
+    const ql = q.toLowerCase();
     cards.forEach(card => {
       const title = card.querySelector('.ra-card-title')?.textContent?.toLowerCase() || '';
-      card.style.display = title.includes(q) ? '' : 'none';
+      const cat = card.querySelector('.ra-card-cat')?.textContent?.toLowerCase() || '';
+      card.style.display = (title.includes(ql) || cat.includes(ql)) ? '' : 'none';
     });
   }
+  // Set initial aria-pressed
+  filterBtns.forEach(btn => btn.setAttribute('aria-pressed', btn.classList.contains('active') ? 'true' : 'false'));
 }
 
 /* ── COOKIE CONSENT ── */
-(function() {
+(function () {
   const CONSENT_KEY = 'ohc_consent_v1';
   const banner = document.getElementById('ohc-consent');
   const modal  = document.getElementById('ohc-consent-modal');
@@ -61,64 +76,45 @@ if (filterBtns.length && cards.length) {
     try { return JSON.parse(localStorage.getItem(CONSENT_KEY)); } catch(e) { return null; }
   }
   function saveConsent(prefs) {
-    try { localStorage.setItem(CONSENT_KEY, JSON.stringify({...prefs, ts: Date.now()})); } catch(e) {}
+    try { localStorage.setItem(CONSENT_KEY, JSON.stringify({ ...prefs, ts: Date.now() })); } catch(e) {}
   }
   function applyConsent(prefs) {
-    // Fire GA only if analytics accepted
     if (prefs.analytics && typeof gtag !== 'undefined') {
       gtag('consent', 'update', { analytics_storage: 'granted', ad_storage: 'denied' });
     }
     banner.classList.remove('show');
     banner.setAttribute('aria-hidden', 'true');
   }
-  function closeBanner() { banner.classList.remove('show'); }
 
-  // Show banner if no consent stored
   const existing = getConsent();
   if (!existing) {
-    setTimeout(() => { banner.classList.add('show'); banner.removeAttribute('aria-hidden'); }, 800);
+    setTimeout(() => { banner.classList.add('show'); banner.removeAttribute('aria-hidden'); }, 900);
   } else {
     applyConsent(existing);
   }
 
-  // Accept all
   document.getElementById('consent-accept-all')?.addEventListener('click', () => {
     const prefs = { essential: true, analytics: true };
-    saveConsent(prefs);
-    applyConsent(prefs);
+    saveConsent(prefs); applyConsent(prefs);
   });
-
-  // Decline non-essential
   document.getElementById('consent-decline')?.addEventListener('click', () => {
-    const prefs = { essential: true, analytics: false };
-    saveConsent(prefs);
-    applyConsent(prefs);
-    closeBanner();
+    saveConsent({ essential: true, analytics: false });
+    banner.classList.remove('show');
+    banner.setAttribute('aria-hidden', 'true');
   });
-
-  // Open settings modal
   document.getElementById('consent-settings-btn')?.addEventListener('click', () => {
-    if (modal) { modal.classList.add('open'); modal.querySelector('button')?.focus(); }
+    modal?.classList.add('open');
+    document.getElementById('consent-modal-title')?.focus();
   });
-
-  // Close modal on backdrop click
   modal?.addEventListener('click', e => { if (e.target === modal) modal.classList.remove('open'); });
-
-  // Accept all in modal
   document.getElementById('consent-modal-accept-all')?.addEventListener('click', () => {
     const prefs = { essential: true, analytics: true };
-    saveConsent(prefs);
-    applyConsent(prefs);
-    modal.classList.remove('open');
+    saveConsent(prefs); applyConsent(prefs); modal?.classList.remove('open');
   });
-
-  // Save preferences in modal
   document.getElementById('consent-modal-save')?.addEventListener('click', () => {
-    const analyticsToggle = document.getElementById('toggle-analytics');
-    const prefs = { essential: true, analytics: analyticsToggle?.checked || false };
-    saveConsent(prefs);
-    applyConsent(prefs);
-    modal.classList.remove('open');
+    const analytics = document.getElementById('toggle-analytics')?.checked || false;
+    const prefs = { essential: true, analytics };
+    saveConsent(prefs); applyConsent(prefs); modal?.classList.remove('open');
   });
 })();
 
@@ -126,25 +122,75 @@ if (filterBtns.length && cards.length) {
 document.querySelectorAll('.sub-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     const input = btn.closest('.newsletter-widget')?.querySelector('input[type="email"]');
-    if (!input?.value?.includes('@')) {
+    const email = input?.value?.trim();
+    if (!email || !email.includes('@')) {
       input?.focus();
+      input?.setAttribute('aria-invalid', 'true');
       return;
     }
+    input?.removeAttribute('aria-invalid');
     btn.textContent = 'Subscribed! 🎉';
     btn.disabled = true;
     if (input) input.value = '';
   });
 });
 
-/* ── CONTACT FORM ── */
-document.querySelector('.cf-submit')?.addEventListener('click', e => {
-  const btn = e.currentTarget;
-  const form = btn.closest('.contact-form');
-  const subject = form?.querySelector('#cf-subject')?.value?.trim();
-  const email   = form?.querySelector('#cf-email')?.value?.trim();
-  const msg     = form?.querySelector('#cf-message')?.value?.trim();
-  if (!subject || !email || !msg) { alert('Please fill in all required fields.'); return; }
-  btn.textContent = 'Message Sent! ✓';
-  btn.disabled = true;
-  btn.style.background = '#5a9;';
+/* ── CONTACT FORM → mailto ── */
+document.querySelector('.cf-submit')?.addEventListener('click', () => {
+  const subject = document.getElementById('cf-subject')?.value?.trim();
+  const first   = document.getElementById('cf-first')?.value?.trim();
+  const last    = document.getElementById('cf-last')?.value?.trim();
+  const email   = document.getElementById('cf-email')?.value?.trim();
+  const message = document.getElementById('cf-message')?.value?.trim();
+
+  // Validate
+  let valid = true;
+  [
+    ['cf-subject', subject],
+    ['cf-email',   email],
+    ['cf-message', message],
+  ].forEach(([id, val]) => {
+    const el = document.getElementById(id);
+    if (!val) {
+      el?.setAttribute('aria-invalid', 'true');
+      el?.focus();
+      valid = false;
+    } else {
+      el?.removeAttribute('aria-invalid');
+    }
+  });
+  if (!valid) return;
+
+  if (email && !email.includes('@')) {
+    const el = document.getElementById('cf-email');
+    el?.setAttribute('aria-invalid', 'true');
+    el?.focus();
+    return;
+  }
+
+  // Build mailto
+  const name = [first, last].filter(Boolean).join(' ') || email;
+  const body = [
+    `Name: ${name}`,
+    `Email: ${email}`,
+    '',
+    message,
+  ].join('\n');
+
+  const mailtoUrl = `mailto:onehungrychica@gmail.com`
+    + `?subject=${encodeURIComponent(subject)}`
+    + `&body=${encodeURIComponent(body)}`;
+
+  window.location.href = mailtoUrl;
+
+  // Visual feedback
+  const btn = document.querySelector('.cf-submit');
+  if (btn) {
+    btn.textContent = 'Opening email client…';
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.textContent = 'Send Message';
+      btn.disabled = false;
+    }, 3000);
+  }
 });

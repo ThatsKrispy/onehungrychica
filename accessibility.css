@@ -1,0 +1,292 @@
+/* ═══════════════════════════════════════════════════════════════
+   ONE HUNGRY CHICA — Accessibility Widget
+   WCAG 2.1 AA compliant toolbar
+   ThatsKrispy Agency — andy@thatskrispy.com
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Widget Launcher Button ── */
+#a11y-launcher {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 8999;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #3BBFBF;
+  border: 3px solid #fff;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.28);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .2s, transform .2s;
+  outline: none;
+}
+#a11y-launcher:hover { background: #2da0a0; transform: scale(1.08); }
+#a11y-launcher:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+#a11y-launcher svg { width: 26px; height: 26px; fill: #fff; }
+
+/* ── Panel ── */
+#a11y-panel {
+  position: fixed;
+  bottom: 88px;
+  left: 24px;
+  z-index: 9000;
+  width: 290px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.22);
+  overflow: hidden;
+  display: none;
+  flex-direction: column;
+  font-family: 'Lato', -apple-system, sans-serif;
+  border: 1px solid #e0e0e0;
+}
+#a11y-panel.open { display: flex; }
+
+/* Panel Header */
+.a11y-header {
+  background: #3BBFBF;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.a11y-header h2 {
+  color: #fff;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+}
+.a11y-close {
+  background: rgba(255,255,255,.2);
+  border: none;
+  border-radius: 50%;
+  width: 26px; height: 26px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .15s;
+  line-height: 1;
+}
+.a11y-close:hover { background: rgba(255,255,255,.4); }
+.a11y-close:focus-visible { outline: 2px solid #fff; }
+
+/* Panel Body */
+.a11y-body { padding: 14px 14px 16px; }
+
+.a11y-section-label {
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #999;
+  margin: 14px 0 8px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #f0f0f0;
+}
+.a11y-section-label:first-child { margin-top: 2px; }
+
+/* Toggle rows */
+.a11y-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 0;
+}
+.a11y-row-label {
+  font-size: 13px;
+  color: #3d3d3d;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.a11y-row-label svg { width: 16px; height: 16px; fill: #3BBFBF; flex-shrink: 0; }
+
+/* Toggle switch */
+.a11y-toggle {
+  position: relative;
+  width: 38px; height: 21px;
+  flex-shrink: 0;
+}
+.a11y-toggle input { opacity: 0; width: 0; height: 0; position: absolute; }
+.a11y-toggle-slider {
+  position: absolute;
+  inset: 0;
+  border-radius: 21px;
+  background: #ccc;
+  cursor: pointer;
+  transition: background .2s;
+}
+.a11y-toggle-slider::before {
+  content: '';
+  position: absolute;
+  width: 15px; height: 15px;
+  left: 3px; top: 3px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform .2s;
+  box-shadow: 0 1px 3px rgba(0,0,0,.2);
+}
+.a11y-toggle input:checked + .a11y-toggle-slider { background: #3BBFBF; }
+.a11y-toggle input:checked + .a11y-toggle-slider::before { transform: translateX(17px); }
+.a11y-toggle input:focus-visible + .a11y-toggle-slider { outline: 2px solid #3BBFBF; outline-offset: 2px; }
+
+/* Font size control */
+.a11y-fontsize {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.a11y-fontsize-btn {
+  width: 30px; height: 30px;
+  border: 1.5px solid #ddd;
+  border-radius: 6px;
+  background: #f8f8f8;
+  font-size: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .15s;
+  color: #3d3d3d;
+  font-weight: 700;
+  font-family: 'Lato', sans-serif;
+}
+.a11y-fontsize-btn:hover { background: #3BBFBF; border-color: #3BBFBF; color: #fff; }
+.a11y-fontsize-btn:focus-visible { outline: 2px solid #3BBFBF; }
+.a11y-fontsize-val {
+  min-width: 34px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: #3d3d3d;
+}
+
+/* Color theme buttons */
+.a11y-themes {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+  padding: 4px 0;
+}
+.a11y-theme-btn {
+  padding: 5px 10px;
+  border-radius: 4px;
+  border: 1.5px solid transparent;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all .15s;
+  font-family: 'Lato', sans-serif;
+  letter-spacing: .5px;
+}
+.a11y-theme-btn.active { border-color: #3BBFBF; }
+.a11y-theme-btn:focus-visible { outline: 2px solid #3BBFBF; }
+
+/* Reset button */
+.a11y-reset {
+  width: 100%;
+  margin-top: 12px;
+  padding: 9px;
+  background: none;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .8px;
+  text-transform: uppercase;
+  color: #777;
+  cursor: pointer;
+  transition: all .15s;
+  font-family: 'Lato', sans-serif;
+}
+.a11y-reset:hover { border-color: #3BBFBF; color: #3BBFBF; }
+.a11y-reset:focus-visible { outline: 2px solid #3BBFBF; }
+
+/* Statement link */
+.a11y-statement {
+  display: block;
+  text-align: center;
+  font-size: 11px;
+  color: #3BBFBF;
+  text-decoration: none;
+  padding: 8px 14px 12px;
+  border-top: 1px solid #f0f0f0;
+}
+.a11y-statement:hover { text-decoration: underline; }
+
+/* ── APPLIED MODES (injected on <html>) ── */
+
+/* High Contrast */
+html.a11y-high-contrast {
+  filter: contrast(1.5);
+}
+html.a11y-high-contrast body {
+  background: #000 !important;
+  color: #fff !important;
+}
+html.a11y-high-contrast a { color: #ffff00 !important; }
+html.a11y-high-contrast .site-header, html.a11y-high-contrast .top-bar { background: #000 !important; border-color: #fff !important; }
+
+/* Dark Mode */
+html.a11y-dark-mode body { background: #111 !important; color: #eee !important; }
+html.a11y-dark-mode .site-header { background: #1a1a1a !important; }
+html.a11y-dark-mode .top-bar { background: #1a1a2e !important; }
+html.a11y-dark-mode .sidebar-widget, html.a11y-dark-mode .ra-card { background: #1e1e1e !important; border-color: #333 !important; }
+html.a11y-dark-mode .sidebar-widget-title, html.a11y-dark-mode h1, html.a11y-dark-mode h2, html.a11y-dark-mode h3 { color: #f0f0f0 !important; }
+html.a11y-dark-mode .recipe-post-body { color: #ddd !important; }
+html.a11y-dark-mode input, html.a11y-dark-mode textarea { background: #2a2a2a !important; color: #eee !important; border-color: #444 !important; }
+
+/* Invert */
+html.a11y-invert body { filter: invert(1) hue-rotate(180deg); }
+html.a11y-invert img { filter: invert(1) hue-rotate(180deg); }
+
+/* Readable font */
+html.a11y-readable-font body,
+html.a11y-readable-font h1, html.a11y-readable-font h2, html.a11y-readable-font h3 {
+  font-family: 'OpenDyslexic', 'Comic Sans MS', 'Arial', sans-serif !important;
+  letter-spacing: .05em !important;
+  word-spacing: .1em !important;
+  line-height: 1.9 !important;
+}
+
+/* Links underline */
+html.a11y-links a { text-decoration: underline !important; text-decoration-thickness: 2px !important; }
+
+/* Larger cursor */
+html.a11y-big-cursor * { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpolygon points='0,0 0,24 8,18 13,30 17,28 12,16 20,16' fill='black' stroke='white' stroke-width='2'/%3E%3C/svg%3E") 0 0, auto !important; }
+
+/* Focus highlight */
+html.a11y-focus-ring *:focus {
+  outline: 4px solid #ff6600 !important;
+  outline-offset: 3px !important;
+}
+
+/* Pause animations */
+html.a11y-no-anim *, html.a11y-no-anim *::before, html.a11y-no-anim *::after {
+  animation: none !important;
+  transition: none !important;
+}
+
+/* Reading guide */
+.a11y-reading-guide {
+  display: none;
+  position: fixed;
+  left: 0; right: 0;
+  height: 40px;
+  background: rgba(255, 255, 0, 0.3);
+  pointer-events: none;
+  z-index: 99999;
+  border-top: 2px solid rgba(255,165,0,.6);
+  border-bottom: 2px solid rgba(255,165,0,.6);
+}
+html.a11y-reading-guide-on .a11y-reading-guide { display: block; }
