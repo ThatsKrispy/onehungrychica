@@ -8,6 +8,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700;900&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9K9JTSFXTE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9K9JTSFXTE');
+  </script>
 </head>
 <body>
 
@@ -97,11 +105,11 @@
     <div class="sidebar-widget">
       <h4 class="sidebar-widget-title">Recent Posts</h4>
       <ul class="recent-posts-widget">
-        <li><img src="https://images.unsplash.com/photo-1509365465985-25d11c17e812?w=58&h=58&fit=crop" alt="Spooky Donuts"><div class="rp-info"><a href="recipe-spooky-donuts.html" class="rp-title">Spooky Donuts</a><span class="rp-date">October 31, 2023</span></div></li>
-        <li><img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=58&h=58&fit=crop" alt="Watermelon Poke Bowl"><div class="rp-info"><a href="recipes.html" class="rp-title">Watermelon Poke Bowl</a><span class="rp-date">January 22, 2021</span></div></li>
-        <li><img src="https://images.unsplash.com/photo-1603569283847-aa295f0d016a?w=58&h=58&fit=crop" alt="Chili Garlic Tofu"><div class="rp-info"><a href="recipes.html" class="rp-title">Sweet and Spicy Chili Garlic Tofu</a><span class="rp-date">July 27, 2020</span></div></li>
-        <li><img src="https://images.unsplash.com/photo-1541614101331-1a5a3a194e92?w=58&h=58&fit=crop" alt="Margarita"><div class="rp-info"><a href="recipe-jalapeno-margarita.html" class="rp-title">Jalapeño Watermelon Margarita</a><span class="rp-date">July 14, 2020</span></div></li>
-        <li><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=58&h=58&fit=crop" alt="Peaches"><div class="rp-info"><a href="recipe-peaches-burrata.html" class="rp-title">Grilled Peaches with Burrata &amp; Prosciutto</a><span class="rp-date">July 9, 2020</span></div></li>
+        <li><img src="images/spooky-donuts.jpeg" alt="Spooky Donuts"><div class="rp-info"><a href="recipe-spooky-donuts.html" class="rp-title">Spooky Donuts</a><span class="rp-date">October 31, 2023</span></div></li>
+        <li><img src="images/tuna-crudo.jpg" alt="Watermelon Poke Bowl"><div class="rp-info"><a href="recipes.html" class="rp-title">Watermelon Poke Bowl</a><span class="rp-date">January 22, 2021</span></div></li>
+        <li><img src="images/guac.jpg" alt="Chili Garlic Tofu"><div class="rp-info"><a href="recipes.html" class="rp-title">Sweet and Spicy Chili Garlic Tofu</a><span class="rp-date">July 27, 2020</span></div></li>
+        <li><img src="images/watermelon-rita.jpeg" alt="Margarita"><div class="rp-info"><a href="recipe-jalapeno-margarita.html" class="rp-title">Jalapeño Watermelon Margarita</a><span class="rp-date">July 14, 2020</span></div></li>
+        <li><img src="images/grilled-peaches.jpg" alt="Peaches"><div class="rp-info"><a href="recipe-peaches-burrata.html" class="rp-title">Grilled Peaches with Burrata &amp; Prosciutto</a><span class="rp-date">July 9, 2020</span></div></li>
       </ul>
     </div>
 
@@ -124,7 +132,7 @@
     <div class="recipe-archive" id="recipesGrid">
 
       <article class="ra-card" data-cat="sweet">
-        <a href="recipe-spooky-donuts.html"><img class="ra-card-img" src="https://images.unsplash.com/photo-1509365465985-25d11c17e812?w=500&h=375&fit=crop" alt="Spooky Donuts" loading="lazy"></a>
+        <a href="recipe-spooky-donuts.html"><img class="ra-card-img" src="images/spooky-donuts.jpeg" alt="Spooky Donuts" loading="lazy"></a>
         <div class="ra-card-body">
           <span class="ra-card-cat">Sweet Tooth</span>
           <h2 class="ra-card-title"><a href="recipe-spooky-donuts.html">Spooky Donuts</a></h2>
@@ -134,7 +142,7 @@
       </article>
 
       <article class="ra-card" data-cat="healthy">
-        <a href="recipes.html"><img class="ra-card-img" src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500&h=375&fit=crop" alt="Watermelon Poke Bowl" loading="lazy"></a>
+        <a href="recipes.html"><img class="ra-card-img" src="images/tuna-crudo.jpg" alt="Watermelon Poke Bowl" loading="lazy"></a>
         <div class="ra-card-body">
           <span class="ra-card-cat">Healthy Lives Matter</span>
           <h2 class="ra-card-title"><a href="recipes.html">Watermelon Poke Bowl</a></h2>
@@ -144,7 +152,7 @@
       </article>
 
       <article class="ra-card" data-cat="healthy">
-        <a href="recipes.html"><img class="ra-card-img" src="https://images.unsplash.com/photo-1603569283847-aa295f0d016a?w=500&h=375&fit=crop" alt="Sweet and Spicy Chili Garlic Tofu" loading="lazy"></a>
+        <a href="recipes.html"><img class="ra-card-img" src="images/avocado-toast.jpeg" alt="Sweet and Spicy Chili Garlic Tofu" loading="lazy"></a>
         <div class="ra-card-body">
           <span class="ra-card-cat">Healthy Lives Matter</span>
           <h2 class="ra-card-title"><a href="recipes.html">Sweet and Spicy Chili Garlic Tofu</a></h2>
@@ -154,7 +162,7 @@
       </article>
 
       <article class="ra-card" data-cat="happy-hour">
-        <a href="recipe-jalapeno-margarita.html"><img class="ra-card-img" src="https://images.unsplash.com/photo-1541614101331-1a5a3a194e92?w=500&h=375&fit=crop" alt="Jalapeño Watermelon Margarita" loading="lazy"></a>
+        <a href="recipe-jalapeno-margarita.html"><img class="ra-card-img" src="images/watermelon-rita.jpeg" alt="Jalapeño Watermelon Margarita" loading="lazy"></a>
         <div class="ra-card-body">
           <span class="ra-card-cat">Happy Hour</span>
           <h2 class="ra-card-title"><a href="recipe-jalapeno-margarita.html">Jalapeño Watermelon Margarita</a></h2>
@@ -164,7 +172,7 @@
       </article>
 
       <article class="ra-card" data-cat="snacks">
-        <a href="recipe-peaches-burrata.html"><img class="ra-card-img" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=500&h=375&fit=crop" alt="Grilled Peaches with Burrata" loading="lazy"></a>
+        <a href="recipe-peaches-burrata.html"><img class="ra-card-img" src="images/grilled-peaches.jpg" alt="Grilled Peaches with Burrata" loading="lazy"></a>
         <div class="ra-card-body">
           <span class="ra-card-cat">Snacks &amp; Apps</span>
           <h2 class="ra-card-title"><a href="recipe-peaches-burrata.html">Grilled Peaches with Burrata &amp; Prosciutto</a></h2>
@@ -174,7 +182,7 @@
       </article>
 
       <article class="ra-card" data-cat="mains">
-        <a href="recipes.html"><img class="ra-card-img" src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=500&h=375&fit=crop" alt="Pork Belly Burnt Ends" loading="lazy"></a>
+        <a href="recipes.html"><img class="ra-card-img" src="images/pork-belly.jpeg" alt="Pork Belly Burnt Ends" loading="lazy"></a>
         <div class="ra-card-body">
           <span class="ra-card-cat">"Pretty Good" Mains</span>
           <h2 class="ra-card-title"><a href="recipes.html">Pork Belly Burnt Ends</a></h2>
@@ -184,7 +192,7 @@
       </article>
 
       <article class="ra-card" data-cat="snacks">
-        <a href="recipes.html"><img class="ra-card-img" src="https://images.unsplash.com/photo-1603569283847-aa295f0d016a?w=500&h=375&fit=crop&sat=-20" alt="Mango &amp; Avocado Salsa" loading="lazy"></a>
+        <a href="recipes.html"><img class="ra-card-img" src="images/guac.jpg" alt="Mango &amp; Avocado Salsa" loading="lazy"></a>
         <div class="ra-card-body">
           <span class="ra-card-cat">Snacks &amp; Apps</span>
           <h2 class="ra-card-title"><a href="recipes.html">Mango &amp; Avocado Salsa</a></h2>
@@ -194,7 +202,7 @@
       </article>
 
       <article class="ra-card" data-cat="mains">
-        <a href="recipe-jerk-shrimp.html"><img class="ra-card-img" src="https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?w=500&h=375&fit=crop" alt="Skillet Jerk-Butter Shrimp" loading="lazy"></a>
+        <a href="recipe-jerk-shrimp.html"><img class="ra-card-img" src="images/jerk-shrimp.jpg" alt="Skillet Jerk-Butter Shrimp" loading="lazy"></a>
         <div class="ra-card-body">
           <span class="ra-card-cat">"Pretty Good" Mains</span>
           <h2 class="ra-card-title"><a href="recipe-jerk-shrimp.html">Skillet Jerk-Butter Shrimp</a></h2>
@@ -204,7 +212,7 @@
       </article>
 
       <article class="ra-card" data-cat="mains">
-        <a href="recipes.html"><img class="ra-card-img" src="https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?w=500&h=375&fit=crop" alt="Mango-Apricot BBQ Chicken" loading="lazy"></a>
+        <a href="recipes.html"><img class="ra-card-img" src="images/chicken-wings.jpg" alt="Mango-Apricot BBQ Chicken" loading="lazy"></a>
         <div class="ra-card-body">
           <span class="ra-card-cat">Bar Food at Home</span>
           <h2 class="ra-card-title"><a href="recipes.html">Mango-Apricot BBQ Chicken Breast with Watermelon Salad</a></h2>
@@ -214,7 +222,7 @@
       </article>
 
       <article class="ra-card" data-cat="snacks">
-        <a href="recipes.html"><img class="ra-card-img" src="https://images.unsplash.com/photo-1593027702851-7ebffbde33e5?w=500&h=375&fit=crop" alt="Brown Sugar Curry Sweet Potato Fries" loading="lazy"></a>
+        <a href="recipes.html"><img class="ra-card-img" src="images/avocado-toast.jpeg" alt="Brown Sugar and Curry Sweet Potato Fries" loading="lazy"></a>
         <div class="ra-card-body">
           <span class="ra-card-cat">Bar Food at Home</span>
           <h2 class="ra-card-title"><a href="recipes.html">Brown Sugar and Curry Sweet Potato Fries</a></h2>
@@ -224,7 +232,7 @@
       </article>
 
       <article class="ra-card" data-cat="healthy">
-        <a href="recipes.html"><img class="ra-card-img" src="https://images.unsplash.com/photo-1547592180-85f173990554?w=500&h=375&fit=crop" alt="Citrus Salad with Fresh Basil" loading="lazy"></a>
+        <a href="recipes.html"><img class="ra-card-img" src="images/citrus-salad.jpeg" alt="Citrus Salad with Fresh Basil" loading="lazy"></a>
         <div class="ra-card-body">
           <span class="ra-card-cat">Healthy Lives Matter</span>
           <h2 class="ra-card-title"><a href="recipes.html">Citrus Salad with Fresh Basil</a></h2>
@@ -234,7 +242,7 @@
       </article>
 
       <article class="ra-card" data-cat="sweet">
-        <a href="recipes.html"><img class="ra-card-img" src="https://images.unsplash.com/photo-1560008511-11c63416e52d?w=500&h=375&fit=crop" alt="Coconut Vanilla Yogurt Ice Cream" loading="lazy"></a>
+        <a href="recipes.html"><img class="ra-card-img" src="images/yogurt-icecream.jpeg" alt="Coconut Vanilla Yogurt Ice Cream" loading="lazy"></a>
         <div class="ra-card-body">
           <span class="ra-card-cat">Sweet Tooth</span>
           <h2 class="ra-card-title"><a href="recipes.html">Coconut Vanilla Yogurt Ice Cream</a></h2>
@@ -244,7 +252,7 @@
       </article>
 
       <article class="ra-card" data-cat="snacks">
-        <a href="recipes.html"><img class="ra-card-img" src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=500&h=375&fit=crop" alt="Creamy Hummus with Black Garlic" loading="lazy"></a>
+        <a href="recipes.html"><img class="ra-card-img" src="images/hummus.jpg" alt="Creamy Hummus with Black Garlic" loading="lazy"></a>
         <div class="ra-card-body">
           <span class="ra-card-cat">Snacks &amp; Apps</span>
           <h2 class="ra-card-title"><a href="recipes.html">Creamy Hummus with Black Garlic</a></h2>
@@ -254,7 +262,7 @@
       </article>
 
       <article class="ra-card" data-cat="mains">
-        <a href="recipes.html"><img class="ra-card-img" src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=500&h=375&fit=crop&hue=20" alt="Korean BBQ Short Ribs Kalbi" loading="lazy"></a>
+        <a href="recipes.html"><img class="ra-card-img" src="images/kalbi.jpeg" alt="Korean Style BBQ Short Ribs Kalbi" loading="lazy"></a>
         <div class="ra-card-body">
           <span class="ra-card-cat">Low 'N Slow</span>
           <h2 class="ra-card-title"><a href="recipes.html">Korean Style BBQ Short Ribs a.k.a Kalbi</a></h2>
@@ -264,7 +272,7 @@
       </article>
 
       <article class="ra-card" data-cat="brunch">
-        <a href="recipes.html"><img class="ra-card-img" src="https://images.unsplash.com/photo-1565299543923-37dd37887442?w=500&h=375&fit=crop" alt="Easy Peasy Soufflé Pancakes" loading="lazy"></a>
+        <a href="recipes.html"><img class="ra-card-img" src="images/souffle-pancakes.jpeg" alt="Easy Peasy Soufflé Pancakes" loading="lazy"></a>
         <div class="ra-card-body">
           <span class="ra-card-cat">Sin Huevos No Hay Paraiso</span>
           <h2 class="ra-card-title"><a href="recipes.html">Easy Peasy Soufflé Pancakes</a></h2>
@@ -274,7 +282,7 @@
       </article>
 
       <article class="ra-card" data-cat="brunch">
-        <a href="recipes.html"><img class="ra-card-img" src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=500&h=375&fit=crop" alt="Pancakes with Caramelized Apples" loading="lazy"></a>
+        <a href="recipes.html"><img class="ra-card-img" src="images/pancakes.jpeg" alt="Pancakes with Caramelized Apples" loading="lazy"></a>
         <div class="ra-card-body">
           <span class="ra-card-cat">Sin Huevos No Hay Paraiso</span>
           <h2 class="ra-card-title"><a href="recipes.html">Pancakes with Caramelized Apples, Chicharron &amp; Maple Syrup Greek Yogurt</a></h2>
@@ -284,7 +292,7 @@
       </article>
 
       <article class="ra-card" data-cat="brunch">
-        <a href="recipes.html"><img class="ra-card-img" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=500&h=375&fit=crop" alt="Crab Eggs Benny" loading="lazy"></a>
+        <a href="recipes.html"><img class="ra-card-img" src="images/crab-eggs.jpg" alt="Crab Eggs Benny" loading="lazy"></a>
         <div class="ra-card-body">
           <span class="ra-card-cat">Brunch &amp; Mimosas</span>
           <h2 class="ra-card-title"><a href="recipes.html">Crab Eggs Benny</a></h2>
@@ -294,7 +302,7 @@
       </article>
 
       <article class="ra-card" data-cat="mains">
-        <a href="recipes.html"><img class="ra-card-img" src="https://images.unsplash.com/photo-1546549032-9571cd6b27df?w=500&h=375&fit=crop" alt="No Cream Creamy Pasta" loading="lazy"></a>
+        <a href="recipes.html"><img class="ra-card-img" src="images/creamy-pasta.jpg" alt="No Cream Creamy Pasta" loading="lazy"></a>
         <div class="ra-card-body">
           <span class="ra-card-cat">Back to Basics</span>
           <h2 class="ra-card-title"><a href="recipes.html">No Cream Creamy Pasta</a></h2>
@@ -304,7 +312,7 @@
       </article>
 
       <article class="ra-card" data-cat="healthy">
-        <a href="recipe-cauliflower-pizza.html"><img class="ra-card-img" src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500&h=375&fit=crop" alt="Cauliflower Crust Pizza" loading="lazy"></a>
+        <a href="recipe-cauliflower-pizza.html"><img class="ra-card-img" src="images/cauli-pizza.jpg" alt="Cauliflower Crust Pizza" loading="lazy"></a>
         <div class="ra-card-body">
           <span class="ra-card-cat">Healthy Lives Matter</span>
           <h2 class="ra-card-title"><a href="recipe-cauliflower-pizza.html">Cauliflower Crust Pizza</a></h2>
