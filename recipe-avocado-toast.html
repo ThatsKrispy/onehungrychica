@@ -9,7 +9,7 @@
   <meta property="og:title" content="Avocado Toast | One Hungry Chica">
   <meta property="og:description" content="Perfect avocado toast recipe — creamy avocado on toasted bread with toppings. Back to Basics from Miami food blogger One Hungry Chica.">
   <meta property="og:url" content="https://www.onehungrychica.com/recipe-avocado-toast.html">
-  <meta property="og:image" content="https://www.onehungrychica.com/images/yuly-rodriguez-one-hungry-chica-miami-food-blogger.jpg">
+  <meta property="og:image" content="https://www.onehungrychica.com/images/yuly-rodriguez-one-hungry-chica-miami-food-blogger.webp">
   <meta property="og:site_name" content="One Hungry Chica">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@1hungrychica">
@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700;900&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.min.css">
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-9K9JTSFXTE"></script>
   <script>
@@ -38,12 +38,12 @@
     "author":{"@type":"Person","name":"Yuly Rodriguez"},
     "datePublished":"May 21, 2026",
     "description":"Perfect avocado toast recipe — creamy avocado on toasted bread with toppings. Back to Basics from Miami food blogger One Hungry Chica.",
-    "image":"https://www.onehungrychica.com/images/avocado-toast-recipe-miami.jpeg",
+    "image":"https://www.onehungrychica.com/images/avocado-toast-recipe-miami.webp",
     "recipeCategory":"Back to Basics",
     "publisher":{"@type":"Organization","name":"One Hungry Chica","url":"https://www.onehungrychica.com"}
   }
   </script>
-  <link rel="stylesheet" href="accessibility.css">
+  <link rel="stylesheet" href="accessibility.min.css">
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -59,7 +59,7 @@
 <div class="header-wrap">
   <header class="site-header" role="navigation" aria-label="Site header">
     <a href="index.html" class="site-logo" aria-label="One Hungry Chica — Home">
-      <img src="images/one-hungry-chica-logo.png" alt="One Hungry Chica logo — Miami food blog" width="130" height="130">
+      <img src="images/one-hungry-chica-logo.png" alt="One Hungry Chica logo — Miami food blog" width="130" height="130" fetchpriority="high">
     </a>
     <nav class="site-nav" id="siteNav" aria-label="Main navigation">
       <a href="index.html">HOME</a>
@@ -80,10 +80,13 @@
 <div class="page-wrap">
   <main class="main-content recipe-post" id="main-content">
 
-    <img class="recipe-post-hero"
-         src="images/avocado-toast-recipe-miami.jpeg"
+    <picture>
+      <source srcset="images/avocado-toast-recipe-miami.webp" type="image/webp">
+      <img class="recipe-post-hero"
+         src="images/avocado-toast-recipe-miami.webp"
          alt="Avocado toast on thick sourdough with sliced tomatoes, red pepper flakes and a squeeze of lemon"
          width="820" height="513" loading="eager">
+    </picture>
 
     <h1>Avocado Toast</h1>
     <p class="recipe-post-meta">
@@ -99,8 +102,8 @@
     </div>
 
     <div class="recipe-post-img-row">
-      <img src="images/avocado-toast-recipe-miami.jpeg" alt="Avocado toast on thick sourdough with sliced tomatoes, red pepper flakes and a squeeze of lemon" loading="lazy" width="400" height="533">
-      <img src="images/creamy-hummus-black-garlic-recipe.jpg" alt="Another recipe from One Hungry Chica" loading="lazy" width="400" height="533">
+      <img src="images/avocado-toast-recipe-miami.webp" alt="Avocado toast on thick sourdough with sliced tomatoes, red pepper flakes and a squeeze of lemon" loading="lazy" width="400" height="533">
+      <img src="images/creamy-hummus-black-garlic-recipe.webp" alt="Another recipe from One Hungry Chica" loading="lazy" width="400" height="533">
     </div>
 
     <div class="post-footer-cats">
@@ -116,7 +119,7 @@
   <aside class="sidebar" aria-label="Sidebar">
     <!-- Yuly sidebar -->
     <div class="sidebar-widget sidebar-hello">
-      <img src="images/yuly-rodriguez-one-hungry-chica-miami-food-blogger.jpg"
+      <img src="images/yuly-rodriguez-one-hungry-chica-miami-food-blogger.webp"
            alt="Yuly Rodriguez — One Hungry Chica Miami food blogger and digital marketing founder"
            width="260" loading="lazy" style="border-radius:4px;width:100%;object-fit:cover;">
       <h3>Hello!</h3>
@@ -146,49 +149,49 @@
       <h4 class="sidebar-widget-title">Recent Posts</h4>
       <ul class="recent-posts-widget">
         <li>
-          <img src="images/cauliflower-crust-pizza-low-carb-recipe.jpg" alt="Spooky Donuts" width="58" height="58" loading="lazy">
+          <img src="images/cauliflower-crust-pizza-low-carb-recipe.webp" alt="Spooky Donuts" width="58" height="58" loading="lazy">
           <div class="rp-info">
             <a href="recipe-spooky-donuts.html" class="rp-title">Spooky Donuts</a>
             <span class="rp-date">October 31, 2025</span>
           </div>
         </li>
         <li>
-          <img src="images/pork-belly-burnt-ends-recipe.jpeg" alt="Pork Belly Burnt Ends" width="58" height="58" loading="lazy">
+          <img src="images/pork-belly-burnt-ends-recipe.webp" alt="Pork Belly Burnt Ends" width="58" height="58" loading="lazy">
           <div class="rp-info">
             <a href="recipe-pork-belly-burnt-ends.html" class="rp-title">Pork Belly Burnt Ends</a>
             <span class="rp-date">July 2, 2026</span>
           </div>
         </li>
         <li>
-          <img src="images/jalapeno-watermelon-margarita-recipe.jpeg" alt="Jalapeño Watermelon Margarita" width="58" height="58" loading="lazy">
+          <img src="images/jalapeno-watermelon-margarita-recipe.webp" alt="Jalapeño Watermelon Margarita" width="58" height="58" loading="lazy">
           <div class="rp-info">
             <a href="recipe-jalapeno-watermelon-margarita.html" class="rp-title">Jalapeño Watermelon Margarita</a>
             <span class="rp-date">June 14, 2026</span>
           </div>
         </li>
         <li>
-          <img src="images/grilled-peaches-burrata-prosciutto-recipe.jpg" alt="Grilled Peaches with Burrata & Prosciutto" width="58" height="58" loading="lazy">
+          <img src="images/grilled-peaches-burrata-prosciutto-recipe.webp" alt="Grilled Peaches with Burrata & Prosciutto" width="58" height="58" loading="lazy">
           <div class="rp-info">
             <a href="recipe-grilled-peaches-burrata.html" class="rp-title">Grilled Peaches with Burrata & Prosciutto</a>
             <span class="rp-date">May 9, 2026</span>
           </div>
         </li>
         <li>
-          <img src="images/cauliflower-crust-pizza-low-carb-recipe.jpg" alt="Cauliflower Crust Pizza" width="58" height="58" loading="lazy">
+          <img src="images/cauliflower-crust-pizza-low-carb-recipe.webp" alt="Cauliflower Crust Pizza" width="58" height="58" loading="lazy">
           <div class="rp-info">
             <a href="recipe-cauliflower-pizza.html" class="rp-title">Cauliflower Crust Pizza</a>
             <span class="rp-date">April 22, 2026</span>
           </div>
         </li>
         <li>
-          <img src="images/skillet-jerk-butter-shrimp-recipe-miami.jpg" alt="Skillet Jerk-Butter Shrimp" width="58" height="58" loading="lazy">
+          <img src="images/skillet-jerk-butter-shrimp-recipe-miami.webp" alt="Skillet Jerk-Butter Shrimp" width="58" height="58" loading="lazy">
           <div class="rp-info">
             <a href="recipe-jerk-shrimp.html" class="rp-title">Skillet Jerk-Butter Shrimp</a>
             <span class="rp-date">March 18, 2026</span>
           </div>
         </li>
         <li>
-          <img src="images/korean-bbq-short-ribs-kalbi-recipe.jpeg" alt="Korean BBQ Short Ribs (Kalbi)" width="58" height="58" loading="lazy">
+          <img src="images/korean-bbq-short-ribs-kalbi-recipe.webp" alt="Korean BBQ Short Ribs (Kalbi)" width="58" height="58" loading="lazy">
           <div class="rp-info">
             <a href="recipe-korean-kalbi.html" class="rp-title">Korean BBQ Short Ribs (Kalbi)</a>
             <span class="rp-date">February 11, 2026</span>
@@ -279,7 +282,7 @@
   </div>
 </div>
 
-<script src="main.js" defer></script>
-<script src="accessibility.js" defer></script>
+<script src="main.min.js" defer></script>
+<script src="accessibility.min.js" defer></script>
 </body>
 </html>
